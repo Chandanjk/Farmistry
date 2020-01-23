@@ -1,0 +1,645 @@
+body {
+  margin: 0;
+  font-size: 28px;
+  font-family: Arial, Helvetica, sans-serif;
+transition: background-color .5s;
+ background-color: #f1f1f1;
+}
+
+.header {
+  background-color: #f1f1f1;
+  text-align: center;
+}
+.header a img{
+	height:200px;
+}
+
+#navbar {
+  overflow: hidden;
+  background-color: #400040;
+  z-index:100;
+}
+#homeButton{
+	float:left;
+	padding: 14px 16px;
+}
+#logoutButton{
+	float:left;
+	
+	padding: 14px 16px;
+}
+#shoppingCart
+{
+	float:left;
+	padding: 14px 16px;
+}
+#navbar a {
+  
+  display: block;
+  color: #ffffff;
+  text-align: center;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+#navbar a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+#navbar a.active {
+  background-color: #800000;
+  color: white;
+}
+
+#navbar .search-container {
+  float: right;
+  right=20px;
+}
+
+#navbar input[type=text] {
+  padding: 6px;
+  margin-top: 8px;
+  font-size: 17px;
+  border: none;
+}
+
+#navbar .search-container button {
+  float: right;
+  padding: 6px 10px;
+  margin-top: 8px;
+  margin-right: 16px;
+  background: #ddd;
+  font-size: 17px;
+  border: none;
+  cursor: pointer;
+}
+
+#navbar .search-container button:hover {
+  background: #ccc;
+}
+
+@media screen and (max-width: 600px) {
+  #navbar .search-container {
+    float: none;
+  }
+  #navbar a, #navbar input[type=text], #navbar .search-container button {
+    float: none;
+    display: block;
+    text-align: left;
+    width: 100%;
+    margin: 0;
+    padding: 14px;
+  }
+  #navbar input[type=text] {
+    border: 1px solid #ccc;  
+  }
+}
+
+.content {
+  padding: 16px;
+}
+
+.sticky {
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+.sticky + .content {
+  padding-top: 60px;
+}
+
+#shoppingCart img
+{
+	height:44px;
+	
+}
+/* FOR SIDEBAR */
+.sidenav {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #111;
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 60px;
+}
+
+.sidenav a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #818181;
+  display: block;
+  transition: 0.3s;
+}
+
+.sidenav a:hover {
+  color: #f1f1f1;
+}
+
+.sidenav .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+}
+
+#main {
+  transition: margin-left .5s;
+}
+
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}
+
+
+		/* FOOTER */
+
+
+table, th, td {
+  border: none;;
+  padding: 5px;
+  text-align:left;
+  font-size:14px;
+}
+table {
+  border-spacing: 15px;
+  
+    margin-left:100px;
+}
+
+.footer table tr td a{
+	  float: left;
+  display: block;
+  color: #999999;
+  text-decoration: none;
+}
+
+.footer table tr td a:hover{
+  color: white;
+	}
+
+.footer {
+  background-color: #1b2530;
+  text-align: center;
+  margin-bottom:0;
+  
+  font-family:Lucida Console;
+}
+#row
+{
+	color:white;
+}
+
+
+.footerLast {
+  background-color: #10161d;
+  text-align: center;
+    margin: 0;
+  font-size: 12px;
+  font-family: Lucida Console;
+  float:left
+  
+}
+
+#uselessText
+{
+	float:left;
+	padding:20px;
+	color:#9a9a9a;
+}
+		
+		
+		
+		
+
+						/* Food Items */
+#foodContainer
+{
+	box-sizing: border-box;
+	width : 100%;
+	display : flex;
+	justify-content : center;
+	flex-wrap : wrap;
+	flex-direction : row;
+}
+.foodItems
+{
+	box-sizing: border-box;
+	width : 20%;
+	margin : 20px;
+}
+.foodImage
+{
+	padding : 5px;
+	box-sizing: border-box;
+}
+.foodImage img
+{
+	width : 100%
+}
+.foodText{
+	position : relative;
+	padding-top  : 0px;
+}
+.foodText div{
+	font-family: Arial, Helvetica, sans-serif;
+	line-height: 90%;
+}
+.foodName {
+	position : absolute;
+	font-size : 20px;
+	left : 5px;
+	top: -10px;
+	 font-weight: bold;
+}
+.foodPrice {
+	position : absolute;
+	font-size : 20px;
+	right : 5px;
+	top: -10px;
+	 font-weight: bold;
+}
+
+.foodDescription
+{
+	font-size : 18px;
+	position : relative;
+	top : 10px;
+	padding : 5px;
+}
+.addButton {
+	position : relative;
+	left : 13px;
+	top : 10px;
+  background-color: white; 
+  color: black; 
+  border: 2px solid #b70000;
+  -webkit-transition-duration: 0.4s; /* Safari */
+  transition-duration: 0.4s;
+  width : 90%;
+  font-size: 16px;
+  padding: 12px 32px;
+   display: inline-block;
+   border-radius: 6px;
+}
+
+.addButton:hover {
+  background-color: #b70000; /* Green */
+  color: white;
+  cursor: pointer;
+}
+
+/* ======================================================================================== */
+
+/* ======================================================================================== */
+
+
+/* The Modal REQUEST (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: absolute; /* Stay in place */
+  z-index: 200; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  padding-top: 60px;
+}
+body.modal-open {
+    overflow: hidden;
+    position: fixed;
+}
+
+/* Modal Content/Box */
+.modal-content {
+  background-color: #fefefe;
+  margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
+  border: 1px solid #888;
+  width: 50%; /* Could be more or less, depending on screen size */
+  z-index:110;
+}
+
+/* The Close Button (x) */
+.close {
+  position: absolute;
+  right: 25px;
+  top: 0;
+  color: #000;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: red;
+  cursor: pointer;
+}
+
+/* Add Zoom Animation */
+.animate {
+  -webkit-animation: animatezoom 0.6s;
+  animation: animatezoom 0.6s
+}
+
+@-webkit-keyframes animatezoom {
+  from {-webkit-transform: scale(0)} 
+  to {-webkit-transform: scale(1)}
+}
+  
+@keyframes animatezoom {
+  from {transform: scale(0)} 
+  to {transform: scale(1)}
+}
+
+/* Change styles for span and cancel button on extra small screens */
+@media screen and (max-width: 300px) {
+  span.psw {
+     display: block;
+     float: none;
+  }
+  .cancelbtn {
+     width: 100%;
+  }
+}
+/* Full-width input fields */
+input[type=text], input[type=password] , select{
+  width: 100%;
+  height:100%;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+#desc{
+    width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+/* Set a style for all buttons */
+button {
+  background-color: #4CAF50;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  alignment-adjust: middle;
+}
+
+
+/* Extra styles for the cancel button */
+.cancelbtn {
+    alignment-adjust: middle;
+  width: auto;
+  position: relative;
+  background-color: #f44336;
+}
+.container {
+  text-align: center;
+  width:100%;
+}
+
+#cont1{
+    width:100%;
+    margin-left :0px;
+    align : center;
+    font-size: 15px;
+}
+
+#cont1 td{
+   padding : 0;
+   padding-top: 0px;
+   padding-bottom: 0px;
+   font-size: 17px;
+   height: 35px;
+}
+
+#cont1 tr{
+   padding : 0;
+   height: 35px;
+}
+
+/* ======================================================================================== */
+
+/* ======================================================================================== */
+
+//OF MODAL CROP INFO
+
+
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 100; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  padding-top: 60px;
+}
+
+/* Modal Content/Box */
+.modal-content {
+  background-color: #fefefe;
+  margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
+  border: 1px solid #888;
+  width: 50%; /* Could be more or less, depending on screen size */
+  z-index:110;
+}
+
+.close {
+  position: absolute;
+  right: 25px;
+  top: 0;
+  color: #000;
+  font-size: 35px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: red;
+  cursor: pointer;
+}
+
+.animate {
+  -webkit-animation: animatezoom 0.6s;
+  animation: animatezoom 0.6s
+}
+
+@-webkit-keyframes animatezoom {
+  from {-webkit-transform: scale(0)} 
+  to {-webkit-transform: scale(1)}
+}
+  
+@keyframes animatezoom {
+  from {transform: scale(0)} 
+  to {transform: scale(1)}
+}
+
+/* Change styles for span and cancel button on extra small screens */
+@media screen and (max-width: 300px) {
+  span.psw {
+     display: block;
+     float: none;
+  }
+  .cancelbtn {
+     width: 100%;
+  }
+}
+
+.holemat{
+    display: flex;
+    flex-direction: row;
+    width : 100%;   
+}
+.col1{
+    background-color: #1b2530;
+    color:#f1f1f1;
+    padding : 50px;
+    display: flex;
+    flex-direction: column;
+    width : 40%;
+}
+.col2{
+    background-color: #f1f1f1;
+    display: flex;
+    flex-direction: column;   
+    width : 60%;
+}
+.row1{
+}
+.row1 img{
+    padding-top: 0px;
+    padding-left: 0px;
+    padding-right: 0px;
+    width : 100%;
+}
+.row2{
+    padding-bottom: 20px;
+    font-size: 23px;
+}
+.row3{
+    height:90%;
+    padding-left: 13px;
+    font-size: 23px;
+}
+.row4{
+    padding-left: 100px;
+    text-align: center;
+}
+.row4 a{
+    border : 1px solid black;
+    border-radius : 5px;
+    padding : 2px;
+    font-size : 20px;
+    margin : 20px;
+}
+.row4 a:hover{
+    background-color : black;
+    color : white;
+}
+
+/* ======================================================================================== */
+
+/* ======================================================================================== */
+
+//chat
+
+.open-button {
+  background-color: #555;
+  color: white;
+  padding: 16px 20px;
+  border: none;
+  cursor: pointer;
+  opacity: 0.8;
+  position: fixed;
+  bottom: 23px;
+  right: 28px;
+  width: 280px;
+}
+
+/* The popup chat - hidden by default */
+.chat-popup {
+  display: none;
+  position: fixed;
+  bottom: 0;
+  right: 15px;
+  border: 3px solid #f1f1f1;
+  z-index: 9;
+}
+
+/* Add styles to the form container */
+.form-container {
+  max-width: 300px;
+  padding: 10px;
+  background-color: white;
+}
+
+/* Full-width textarea */
+.msg_container {
+  height:250px;
+  width: 90%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  border: none;
+  background: #f1f1f1;
+  resize: none;
+  min-height: 200px;
+  overflow: auto;
+}
+#messages{
+    
+}
+
+/* When the textarea gets focus, do something */
+.msg_container:focus {
+  background-color: #ddd;
+  outline: none;
+}
+
+.form-container input[type=text] {
+  padding: 6px;
+  margin-top: 8px;
+  font-size: 17px;
+  border: none;
+}
+
+/* Set a style for the submit/send button */
+.form-container .btn {
+  background-color: #4CAF50;
+  color: white;
+  padding: 16px 20px;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  margin-bottom:10px;
+  opacity: 0.8;
+}
+
+/* Add a red background color to the cancel button */
+.form-container .cancel {
+  background-color: red;
+}
+
+/* Add some hover effects to buttons */
+.form-container .btn:hover, .open-button:hover {
+  opacity: 1;
+}
+

@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<style type="text/css">
+		* {box-sizing: border-box}
+
+/* Add padding to containers */
+.container {
+  padding: 16px;
+}
+
+/* Full-width input fields */
+input[type=text], input[type=password] {
+  width: 100%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  display: inline-block;
+  border: none;
+  background: #f1f1f1;
+}
+
+input[type=text]:focus, input[type=password]:focus {
+  background-color: #ddd;
+  outline: none;
+}
+
+/* Overwrite default styles of hr */
+hr {
+  border: 1px solid #f1f1f1;
+  margin-bottom: 25px;
+}
+
+/* Set a style for the submit/register button */
+.registerbtn {
+  background-color: #4CAF50;
+  color: white;
+  padding: 16px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  opacity: 0.9;
+}
+
+.registerbtn:hover {
+  opacity:1;
+}
+
+/* Add a blue text color to links */
+a {
+  color: dodgerblue;
+}
+
+/* Set a grey background color and center the text of the "sign in" section */
+.signin {
+  background-color: #f1f1f1;
+  text-align: center;
+}
+
+	</style>
+	<title></title>
+	<!-- The core Firebase JS SDK is always required and must be listed first -->
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="/WebApplication1/index.css" type="text/css">
+<link rel="stylesheet" href="/WebApplication1/sshow.css" type="text/css">
+<link rel="stylesheet" href="/WebApplication1/login.css" type="text/css">
+<script src="https://www.gstatic.com/firebasejs/7.6.2/firebase.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.6.1/firebase-auth.js"></script>
+<script type="text/javascript"
+      src="https://maps.googleapis.com/maps/api/js?sensor=false">
+</script>
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+
+<script>
+  // Your web app's Firebase configuration
+  var firebaseConfig = {
+    apiKey: "AIzaSyClVYk0bADStu9Bz7kiTTcE8v5S43zVzXw",
+    authDomain: "fir-ff12d.firebaseapp.com",
+    databaseURL: "https://fir-ff12d.firebaseio.com",
+    projectId: "fir-ff12d",
+    storageBucket: "fir-ff12d.appspot.com",
+    messagingSenderId: "321189696292",
+    appId: "1:321189696292:web:aeae93c48fc68eba0d19b1"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+</script>
+</head>
+<body>
+
+<div class="header">
+  <a href="index11.html"> <img src="images/logo.png"></a>
+</div>
+
+
+
+<div id="navbar">
+  <a class="active" href="javascript:void(0)">Home</a>
+<!--  <a href="/PizzaPalace/login.html">Login</a> --> 
+	<a id="loginButton" onclick="document.getElementById('id01').style.display='block'">Login</a>
+  <a id="SignUpButton" onclick="document.getElementById('id02').style.display='block'">Signup</a>
+</div>
+  
+
+				<!-- SLIDE SHOW BEGIN -->
+
+
+<div class="slideshow-container">
+
+<div class="mySlides fade">
+  <div class="numbertext">1 / 4</div>
+  <img src="images/a.jpg" style="width:100%">
+  <div class="text"></div>
+</div>
+
+<div class="mySlides fade">
+  <div class="numbertext">2 / 4</div>
+  <img src="images/b.jpg" style="width:100%">
+  <div class="text"></div>
+</div>
+
+<div class="mySlides fade">
+  <div class="numbertext">3 / 4</div>
+  <img src="images/c.jpg" style="width:100%">
+  <div class="text"></div>
+</div>
+
+<div class="mySlides fade">
+  <div class="numbertext">4 / 4</div>
+  <img src="images/d.jpg" style="width:100%">
+  <div class="text"></div>
+</div>
+</div>
+<br>
+
+<div style="text-align:center">
+  <span class="dot"></span> 
+  <span class="dot"></span> 
+  <span class="dot"></span> 
+  <span class="dot"></span> 
+</div>
+
+
+				<!-- SLIDE SHOW ENDS -->
+
+				<!-- LOGIN MODAL BEGINS -->
+<div id="id01" class="modal">
+  
+  <form class="modal-content animate" action="loginChecker.jsp" method="post" onsubmit="return validateLoginform()">
+    <div class="imgcontainer"> 
+      <span onclick="document.getElementById('id02').style.display='none'" class="close" title="Close Modal">&times;</span>
+      <img src="images/img_avatar.png" alt="Avatar" class="avatar">
+    </div>
+
+    <div class="container">
+      <label for="uname"><b>Username</b></label>
+      <input type="text" placeholder="Enter Username" name="uname" id="usename"  >
+
+      <label for="psw"><b>Password</b></label>
+      <input type="password" placeholder="Enter Password" name="psw" id="pasword">
+        
+      <button type="submit" >Login</button>
+      <label>
+        <input type="checkbox" checked="checked" name="remember"> Remember me
+      </label>
+    </div>
+
+    <div class="container" style="background-color:#f1f1f1">
+      <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
+    </div>
+  </form>
+</div>
+
+
+
+				<!--  Login MODAL ENDS -->
+
+				<!-- SignUp Modal STARTS  -->
+<div id="id02" class="modal">
+  
+  <form class="modal-content animate" onsubmit="return validateSignUpform()">
+    <div class="imgcontainer"> 
+      <span onclick="document.getElementById('id02').style.display='none'" class="close" title="Close Modal">&times;</span>
+      <img src="images/img_avatar.png" alt="Avatar" class="avatar">
+    </div>
+
+    <div class="container">
+      <h1>Register</h1>
+    <p>Please fill in this form to create an account.</p>
+    <hr>
+
+     <label for="name"><b>Industry Name</b></label>
+    <input type="text" placeholder="Enter Industry Name" id="name" required>
+
+     <label for="location"><b>Location</b></label>
+    <input type="text" placeholder="Enter Location" id="location" required>
+
+     <label for="phno"><b>Phone No.</b></label>
+    <input type="text" placeholder="Enter Phone No." id="phno" required>
+
+    <label for="email"><b>Email</b></label>
+    <input type="text" placeholder="Enter Email" id="email" required>
+
+    <label for="psw"><b>Password</b></label>
+    <input type="password" placeholder="Enter Password" id="psw" required>
+
+    <label for="psw-repeat"><b>Repeat Password</b></label>
+    <input type="password" placeholder="Repeat Password" id="psw-repeat" required>
+    <hr>
+
+    <p>By creating an account you agree to our <a href="#">Terms & Privacy</a>.</p>
+    <button type="button" class="registerbtn" onclick="register()">Register</button>
+      
+    </div>
+
+      <div class="container signin">
+    <p>Already have an account? <a href="#">Sign in</a>.</p>
+  </div>
+  </form>
+</div>
+
+				<!-- Features Start  -->
+<div id="FeatureContainer">
+	<div class="features" data-content="Text added on hover" id="F1">
+		<img class="fimage" src="images/feature1.jpg" style="width:100%;">
+	</div>
+	<div class="features" id="F2">
+		<img class="fimage" src="images/feature2.jpg" style="width:100%;">
+	</div>
+	<div class="features" id="F3">
+		<img class="fimage" src="images/feature3.jpg" style="width:100%;">
+	</div>
+	<div class="features" id="F4">
+		<img class="fimage" src="images/feature4.jpg" style="width:100%;">
+	</div>
+	<div class="features" id="F5">
+		<img class="fimage" src="images/feature5.jpg" style="width:100%;">
+	</div>
+</div>			
+			<!-- Features Start  -->
+	
+
+				<!-- FOOTER STARTS AND ENDS AT LAST -->
+
+
+<div class="footer">
+<table style="width:100%">
+  <tr id="row">
+    <td>FARMISTRY</td>
+    <td>EXPLORE</td> 
+    <td>JOIN US</td>
+  </tr>
+  <tr>
+    <td><a href="">ABOUT US</a></td>
+    <td><a href="">BLOG</a></td>
+    <td><a href="">FACEBOOK</a></td>
+  </tr>
+  <tr>
+    <td><a href="">CONTACT US</a></td>
+    <td><a href="">FAQ</a></td>
+    <td><a href="">TWITTER</a></td>
+  </tr>
+  <tr>
+    <td><a href="">POLICIES</a></td>
+    <td><a href="">DISCLAIMER</a></td>
+  </tr>
+</table>
+</div>
+<div class="footerLast">
+<p id="uselessText">� Farmistry, 2019. Any part of the materials available through the
+ Farmistry.com site may be copied, photocopied, reproduced, translated or reduced to
+  any electronic medium or machine-readable form, in whole or in part, without prior
+   written consent of Farmistry.</p>
+</div>
+
+    
+   
+<script>
+	//var ref=firebase.database().ref();
+	var n,l,phno,email,pwd1,pwd2,uid,latt,long;
+        
+        function callback(position) {
+                var lat=position.coords.latitude;
+                var lon=position.coords.longitude;
+                latt = lat;
+                long = lon;
+      	}
+        navigator.geolocation.getCurrentPosition(callback);
+                 /*setTimeout(function(){ 
+                                        alert(latt);
+                                        alert(long); 
+                                    }, 6000);*/
+	function register(){
+            var la=latt;
+            var lo=long;
+                 alert(la);
+                 alert(lo);
+		 n=document.getElementById("name").value;
+		 l=document.getElementById("location").value;
+		 phno=document.getElementById("phno").value;
+		 email=document.getElementById("email").value;
+		pwd1=document.getElementById("psw").value;
+		pwd2=document.getElementById("psw-repeat").value;
+		
+
+			const auth=firebase.auth();
+			
+			firebase.auth().createUserWithEmailAndPassword(email, pwd1);
+			alert("User created successfully");
+
+			 firebase.auth().signInWithEmailAndPassword(email, pwd1).then(function(){
+  	alert("login successful");
+  }).catch(function(error) {
+    // Handle Errors here.
+    var errorCode = error.code;
+    var errorMessage = error.message;
+
+    window.alert("Error : " + errorMessage)
+    
+    
+  });
+
+  firebase.auth().onAuthStateChanged(user=>	{
+				if(user){
+					alert("user present");
+					var e=user.email;
+					if(e==email){
+					alert(e);
+					uid=user.uid;
+					alert(uid);
+					 var ref2=firebase.database().ref().child("Industry_Info").child(uid);
+					ref2.set({
+						name:n,
+						lat:la,
+                                                lon:lo,
+						phone_no:phno
+                                                });
+                                                setTimeout(function(){ 
+                                                            window.location.replace("order.jsp"); 
+                                                        }, 6000);
+				}
+					
+				}
+				else{
+					alert("User is not logged in");
+				}
+			});
+
+ 
+
+}
+
+			
+ /*
+
+function login(){
+
+	 firebase.auth().signInWithEmailAndPassword(email, pwd1).then(function(){
+  	alert("login successful");
+  }).catch(function(error) {
+    // Handle Errors here.
+    var errorCode = error.code;
+    var errorMessage = error.message;
+
+    window.alert("Error : " + errorMessage)
+    
+    
+  });
+}
+
+		function insert(){
+
+			firebase.auth().onAuthStateChanged(user=>	{
+				if(user){
+					alert("user present");
+					uid=user.uid;
+					alert(uid);
+					var ref2=firebase.database().ref().child("Industry_Info").child(uid);
+					ref2.set({
+						name:n,
+						location:l,
+						phone_no:phno
+			});
+				}
+				else{
+					alert("User is not logged in");
+				}
+			});
+
+			
+
+		}*/
+
+	
+var modal = document.getElementById('id01');
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+}
+   
+var slideIndex = 0;
+showSlides();
+
+function showSlides() {
+  var i;
+  var slides = document.getElementsByClassName("mySlides");
+  var dots = document.getElementsByClassName("dot");
+  for (i = 0; i < slides.length; i++) {
+    slides[i].style.display = "none";  
+  }
+  slideIndex++;
+  if (slideIndex > slides.length) {slideIndex = 1}    
+  for (i = 0; i < dots.length; i++) {
+    dots[i].className = dots[i].className.replace(" active", "");
+  }
+  slides[slideIndex-1].style.display = "block";  
+  dots[slideIndex-1].className += " active";
+  setTimeout(showSlides, 3500); // Change image every 2 seconds
+}
+   
+window.onscroll = function() {myFunction()};
+
+var navbar = document.getElementById("navbar");
+var sticky = navbar.offsetTop;
+
+function myFunction() {
+  if (window.pageYOffset >= sticky) {
+    navbar.classList.add("sticky")
+  } else {
+    navbar.classList.remove("sticky");
+  }
+}
+
+
+function validateLoginform(){  
+	
+	  
+	var name=document.getElementById("usename");
+	var password=document.getElementById("pasword");
+	if(name.value=="")
+		{
+			document.getElementById("usename")
+			alert("Please Enter Name");
+			return false;
+		}
+	
+	if (password.value=="")
+		{
+		alert("Please Enter Password");
+		return false;
+		}
+	return true;
+	}  
+	
+function validateSignUpform(){  
+	
+	  
+	var name=document.getElementById("usename1");
+	var password=document.getElementById("pasword1");
+	var email=document.getElementById("email1");
+	if(name.value=="")
+		{
+		document.getElementById("usename1").style="border:1px solid #ff0000";
+			alert("Please Enter Name");
+			name.focus();
+			return false;
+		}
+	
+	if (password.value=="")
+		{
+		alert("Please Enter Password");
+		return false;
+		}
+	if(email.value=="")
+		{
+		alert("Please Enter Mail");
+		return false;
+		}
+	return true;
+	}
+
+	
+	
+</script>
+
+</body>
+</html>
